@@ -7,6 +7,36 @@ Built on [Node.js](https://nodejs.org) and [Express](https://expressjs.com).
 
 Powered by [Vercel Serverless Functions](https://vercel.com/docs/serverless-functions/introduction), which runs on [AWS Lambda](https://aws.amazon.com/lambda).
 
+## Try it locally
+
+You need [Node.js](https://nodejs.org) and [Git](https://git-scm.com) installed and a [Vercel account](https://vercel.com/signup).
+
+Install the Vercel CLI from npm:
+
+```bash
+npm i -g vercel
+```
+
+Log in to your Vercel account from the CLI:
+
+```bash
+vercel login
+```
+
+Clone this repository:
+
+```bash
+git clone https://github.com/AryanBeezadhur/tinylink.now.sh.git
+```
+
+Start a local development server on port `localhost:3000`:
+
+```bash
+vercel dev
+```
+
+Go to [localhost:3000](http://localhost:3000) and try it out locally!
+
 ## License
 
 The [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0).
