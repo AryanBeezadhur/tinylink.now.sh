@@ -1,25 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Serverless functions example</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-	<style>
-		* {
-			padding: 0;
-			margin: 0;
-			font-family: 'Inter', sans-serif;
-		}
-	</style>
+	<!-- Browser tab -->
+	<title>TinyLink.now.sh|Shorten multiple links into one short URL</title>
+	<link rel="shortcut icon" type="image/x-icon" href="assets/icon.svg" />
+
+	<!-- SEO -->
+	<meta name="description" content="Shorten multiple links into one short URL" />
+	<meta name="title" content="TinyLink.now.sh" />
+	<meta name="robots" content="index, follow" />
+
+	<!-- OpenGraph -->
+	<meta property="og:title" content="TinyLink.now.sh" />
+	<meta property="og:image" content="https://tinylink.now.sh/assets/icon.svg" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://tinylink.now.sh" />
+	<meta property="og:site_name" content="tinylink.now.sh" />
+	<meta property="og:description" content="Shorten multiple links into one short URL" />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@AryanBeezadhur" />
+	<meta name="twitter:creator" content="@AryanBeezadhur" />
+	<meta name="twitter:domain" content="tinylink.now.sh" />
+	<meta name="twitter:title" content="TinyLink.now.sh" />
+	<meta name="twitter:description" content="Shorten multiple links into one short URL" />
+	<meta name="twitter:image" content="https://tinylink.now.sh/assets/icon.svg" />
+	<meta name="twitter:image:alt" content="Shorten multiple links into one short URL" />
+	<meta name="twitter:url" content="https://tinylink.now.sh" />
+
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-	<h1>TinyLink.now.sh</h1>
+	<center id="container">
 
+		<h1 id="brand">
+			<img src="assets/icon.svg" alt="TinyLink">
+			TinyLink.now.sh
+		</h1>
+
+		<p id="tagline">
+			Shorten multiple links into one short URL. Powered by <a href="https://tinyurl.com">TinyURL</a>.
+		</p>
+
+		<form id="form">
+
+			<div id="url-input-group">
+				<input class="url-input" type="url" placeholder="https://tinylink.now.sh" />
+				<br />
+			</div>
+
+			<button id="add-new">+</button>
+
+
+			<br />
+			<button id="submit-btn">Shorten</button>
+
+		</form>
+
+		<footer>
+			<p>
+				Created by <a href="https://aryanbeezadhur.com">Aryan Beezadhur</a>,
+				<a href="https://github.com/AryanBeezadhur/tinylink.now.sh">open-source</a>
+			</p>
+		</footer>
+
+	</center>
+
+	<script src="script.js"></script>
 </body>
 
 </html>
