@@ -3,9 +3,18 @@ module.exports = (req, res) => {
 		links
 	} = req.query
 
-	const linksArray = links.split(',')
-
 	res.setHeader('Content-Type', 'text/html')
+
+	if (links == undefined) {
+		return res.send(`
+			<script>
+				alert('Error 502: Bad Gateway')
+				window.location.replace('./')
+			</script>
+		`)
+	}
+
+	const linksArray = links.split(',')
 
 	res.write(`
 
@@ -56,6 +65,4 @@ module.exports = (req, res) => {
 	res.write(`</ul>`)
 
 	res.end()
-
-	console.log(linksArray)
 }
