@@ -6,11 +6,24 @@ const $submitBtn = document.getElementById('submit-btn')
 $form.addEventListener('submit', (evt) => {
     evt.preventDefault()
 
-    /*for (var i = 0; i < 5; i++) {
-    }*/
+    var $urlInputFields = [...document.querySelectorAll('.url-input')]
+
+    for (var i = 0; i < $urlInputFields.length; i++) {
+        if ($urlInputFields[i].value.includes('#') == true) {
+            alert("'#'' found inside your string");
+        }
+    }
 })
 
 $addURL.addEventListener('click', () => {
-    $urlInputGroup.innerHTML += `<input class="url-input" type="url" placeholder="https://tinylink.now.sh" /> <br />`
+    const newURLInput = document.createElement('input')
+    newURLInput.classList = 'url-input'
+    newURLInput.type = 'url'
+    newURLInput.placeholder = 'https://tinylink.now.sh'
+    $urlInputGroup.appendChild(newURLInput)
+
+    const newBR = document.createElement('br')
+    $urlInputGroup.appendChild(newBR)
+
     $submitBtn.innerText = `Shorten `;
 })
