@@ -1,12 +1,12 @@
 const $form = document.getElementById('form')
-const $addNew = document.getElementById('add-new')
+const $addNew = document.getElementById('add-url')
 const $urlInputGroup = document.getElementById('url-input-group')
 
 $form.addEventListener('submit', (evt) => {
     evt.preventDefault()
 
-    for (var i = 0; i < 5; i++) {
-    }
+    /*for (var i = 0; i < 5; i++) {
+    }*/
 })
 
 $addNew.addEventListener('click', () => {
