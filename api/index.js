@@ -63,7 +63,7 @@ module.exports = (req, res) => {
 
 				<h1 class="api-page-element">
 					<img src="assets/icon.svg" alt="Logo">
-					TinyLink.now.sh
+					<a href="https://tinylink.now.sh">TinyLink.now.sh</a>
 				</h1>
 
 				<h2 class="api-page-element">Saved links</h2>
@@ -74,7 +74,7 @@ module.exports = (req, res) => {
 	for (var linksArrayIndex = 0; linksArrayIndex < linksArray.length; linksArrayIndex++) {
 		res.write(`
 			<li>
-				<a href="${linksArray[linksArrayIndex]}">
+				<a class="api-page-saved-link" href="${linksArray[linksArrayIndex]}">
 					${linksArray[linksArrayIndex]}
 				</a>
 			</li>

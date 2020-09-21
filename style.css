@@ -28,6 +28,10 @@ body {
     margin-top: 50px;
 }
 
+.api-page-saved-link {
+    color: var(--blue);
+}
+
 #tagline {
     margin-bottom: 30px;
 }
