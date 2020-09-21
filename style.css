@@ -1,9 +1,8 @@
 :root {
     --white: #FFFFFF;
-    --dark: #25282C;
-    --darker: #191C20;
+    --grey: #25282C;
+    --dark-grey: #191C20;
     --blue: #1E90FF;
-    --darker-blue: #2378CA;
 }
 
 * {
@@ -13,15 +12,20 @@
 }
 
 body {
-    background: var(--dark);
+    background: var(--grey);
 }
 
 #container {
-    margin: 50px;
+    margin: 3.66vw;
 }
 
-#brand {
+#brand, #api-page-brand {
     margin-bottom: 30px;
+}
+
+.api-page-element {
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 #tagline {
@@ -29,31 +33,41 @@ body {
 }
 
 #form {
-    background: var(--darker);
+    background: var(--dark-grey);
     width: 60vw;
     border-radius: 5px;
     padding: 40px;
 }
 
 .url-input {
-    background: var(--dark);
-    border: none;
+    text-align: center;
+    background: var(--grey);
+    border: 1px solid transparent;
     border-radius: 5px;
-    width: 25.6vw;
+    width: 350px;
     height: 20px;
     padding: 10px;
     margin: 5px;
+    transition: all 0.2s;
 }
 
-#add-new {
+.url-input:focus {
+    border: 1px solid var(--blue);
+}
+
+#add-url {
     cursor: pointer;
-    width: 30px;
-    height: 30px;
-    margin: 5px;
+    color: var(--white);
+    background: var(--grey);
     border: none;
     border-radius: 5px;
-    background: var(--dark);
-    color: var(--white);
+    margin: 5px;
+    padding: 10px;
+    transition: all 0.2s;
+}
+
+#add-url:hover {
+    background: var(--blue);
 }
 
 #submit-btn {
@@ -69,5 +83,19 @@ body {
 }
 
 #submit-btn:hover {
-    background: var(--darker-blue);
+    background: var(--grey);
+}
+
+li {
+    list-style: none;
+    margin: 1.5vw;
+}
+
+@media only screen and (max-width: 770px) {
+
+    .url-input {
+        width: 200px;
+        margin-left: -15px;
+    }
+
 }
