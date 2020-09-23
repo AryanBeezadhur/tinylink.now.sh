@@ -68,7 +68,7 @@ module.exports = (req, res) => {
 
 				<h2 class="api-page-element">Saved links</h2>
 
-				<ul>
+				<ol>
 	`)
 
 	for (var linksArrayIndex = 0; linksArrayIndex < linksArray.length; linksArrayIndex++) {
@@ -82,7 +82,7 @@ module.exports = (req, res) => {
 	}
 
 	res.write(`
-				</ul>
+				</ol>
 
 				<footer class="api-page-element">
 					<p>

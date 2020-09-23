@@ -19,17 +19,8 @@ body {
     margin: 3.66vw;
 }
 
-#brand, #api-page-brand {
+#brand {
     margin-bottom: 30px;
-}
-
-.api-page-element {
-    margin-bottom: 50px;
-    margin-top: 50px;
-}
-
-.api-page-saved-link {
-    color: var(--blue);
 }
 
 #tagline {
@@ -90,11 +81,6 @@ body {
     background: var(--grey);
 }
 
-li {
-    list-style: none;
-    margin: 1.5vw;
-}
-
 @media only screen and (max-width: 770px) {
 
     .url-input {
@@ -102,4 +88,29 @@ li {
         margin-left: -15px;
     }
 
+}
+
+/* API-PAGE STYLES */
+
+#api-page-brand {
+    margin-bottom: 30px;
+}
+
+.api-page-element {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.api-page-saved-link {
+    color: var(--blue);
+    text-decoration: none;
+    margin: 15px;
+}
+
+.api-page-saved-link:hover {
+    text-decoration: underline;
+}
+
+li {
+    margin: 1.5vw;
 }
