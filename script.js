@@ -1,4 +1,3 @@
-// Define global variables
 const $form = document.getElementById('form')
 const $addURL = document.getElementById('add-url')
 const $urlInputGroup = document.getElementById('url-input-group')
@@ -9,18 +8,24 @@ var updateURLInputFields = () => {
     $urlInputFields = [...document.querySelectorAll('.url-input')]
 }
 
-$form.addEventListener('submit', (evt) => {
-    evt.preventDefault()
+var copyText = (textToCopy) => {
+    const tempTextarea = document.createElement('textarea')
+    tempTextarea.value = textToCopy
+    document.body.appendChild(tempTextarea)
+    tempTextarea.select()
+    document.execCommand('copy')
+    document.body.removeChild(tempTextarea)
+}
 
+$form.addEventListener('submit', (evt) => {
+
+    evt.preventDefault()
     updateURLInputFields()
 
     for (var i = 0; i < $urlInputFields.length; i++) {
 
         if ($urlInputFields[i].value.includes('#') == true) {
-
-            // Remove # character from URL, if present
             $urlInputFields[i].value = $urlInputFields[i].value.split('#')[0]
-
         }
 
     }
@@ -42,25 +47,37 @@ $addURL.addEventListener('click', () => {
 
 })
 
-$submitBtn.addEventListener('click', () => {
+$submitBtn.addEventListener('click', async () => {
 
-    // Create URL containing all links entered
-    var urlToShorten = 'https://tinylink.now.sh/api?links='
-
+    var urlToShorten
     updateURLInputFields()
 
     for (var i = 0; i < $urlInputFields.length; i++) {
-        urlToShorten += `${$urlInputFields[i].value},`
+
+        if ($urlInputFields[i].value != '') {
+            urlToShorten += `${$urlInputFields[i].value},`
+        }
+
     }
 
-    urlToShorten = urlToShorten.replace(/,\s*$/, "") // Remove trailing comma
-    alert(urlToShorten)
+    // Abort if urlToShorten is still undefined
+    if (urlToShorten == undefined) {
+        return alert('Please enter at least 1 link')
+    }
 
-    /*    // Create TinyURL
-        fetch(`http://tinyurl.com/api-create.php?url=https://google.com`)
-            .then(res => res.blob())
-            .then(res => {
-                alert(res.text())
-            });
-    */
+    // Add Tinylink API URL, remove trailing comma if present
+    urlToShorten = 'https://tinylink.now.sh/api?links=' + urlToShorten
+    urlToShorten = urlToShorten.replace(/,\s*$/, "")
+
+    try {
+
+        var res = await fetch(`http://tinyurl.com/api-create.php?url=${urlToShorten}`)
+        var TinyURL = await res.text()
+        $submitBtn.style = 'height: 60px'
+        $submitBtn.innerHTML = `${TinyURL} <br /><br /> - Link copied to clipboard!`
+        copyText(TinyURL)
+
+    } catch (error) {
+        alert(error)
+    }
 })
