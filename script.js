@@ -71,7 +71,7 @@ $submitBtn.addEventListener('click', async () => {
 
     try {
 
-        var res = await fetch(`http://tinyurl.com/api-create.php?url=${urlToShorten}`)
+        var res = await fetch(`https://tinyurl.com/api-create.php?url=${urlToShorten}`)
         var TinyURL = await res.text()
         $submitBtn.style = 'height: 60px'
         $submitBtn.innerHTML = `${TinyURL} <br /><br /> - Link copied to clipboard!`
