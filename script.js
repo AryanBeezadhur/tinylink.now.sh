@@ -25,9 +25,7 @@ $form.addEventListener('submit', (evt) => {
     for (var i = 0; i < $urlInputFields.length; i++) {
 
         if ($urlInputFields[i].value.includes('#') == true) {
-            var urlWithoutHash = $urlInputFields[i].value.split('#')[0]
-            alert(urlWithoutHash)
-            $urlInputFields[i].value = urlWithoutHash
+            $urlInputFields[i].value = $urlInputFields[i].value.split('#')[0]
         }
 
     }
@@ -67,10 +65,12 @@ $submitBtn.addEventListener('click', async () => {
         return alert('Please enter at least 1 link')
     }
 
-    // Add Tinylink API URL, remove trailing comma, remove 'undefined' from start of string
+    // Add Tinylink API URL, remove trailing comma, remove 'undefined' from start of string if present
     urlToShorten = 'https://tinylink.now.sh/api?links=' + urlToShorten
     urlToShorten = urlToShorten.replace(/,\s*$/, "")
-    urlToShorten = urlToShorten.replace('undefined', '')
+    if (urlToShorten.includes('undefined') == true) {
+        urlToShorten = urlToShorten.replace('undefined', '')
+    }
 
     try {
 
