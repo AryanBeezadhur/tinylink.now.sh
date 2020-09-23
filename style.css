@@ -30,7 +30,7 @@ body {
 #form {
     background: var(--dark-grey);
     width: 60vw;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 40px;
 }
 
@@ -54,7 +54,7 @@ body {
     cursor: pointer;
     color: var(--white);
     background: var(--grey);
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     border-radius: 5px;
     margin: 5px;
     padding: 10px;
@@ -62,7 +62,7 @@ body {
 }
 
 #add-url:hover {
-    border: 2px solid var(--blue);
+    border: 1px solid var(--blue);
 }
 
 #submit-btn {
