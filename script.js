@@ -54,7 +54,7 @@ $submitBtn.addEventListener('click', async () => {
 
     for (var i = 0; i < $urlInputFields.length; i++) {
 
-        if ($urlInputFields[i].value != '') {
+        if ($urlInputFields[i].value != '' && $urlInputFields[i].value != undefined) {
             urlToShorten += `${$urlInputFields[i].value},`
         }
 
