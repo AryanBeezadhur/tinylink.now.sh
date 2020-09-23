@@ -54,7 +54,7 @@ $submitBtn.addEventListener('click', async () => {
 
     for (var i = 0; i < $urlInputFields.length; i++) {
 
-        if ($urlInputFields[i].value != '' && $urlInputFields[i].value != undefined) {
+        if ($urlInputFields[i].value != '') {
             urlToShorten += `${$urlInputFields[i].value},`
         }
 
@@ -65,9 +65,10 @@ $submitBtn.addEventListener('click', async () => {
         return alert('Please enter at least 1 link')
     }
 
-    // Add Tinylink API URL, remove trailing comma if present
+    // Add Tinylink API URL, remove trailing comma, remove 'undefined' from start of string
     urlToShorten = 'https://tinylink.now.sh/api?links=' + urlToShorten
     urlToShorten = urlToShorten.replace(/,\s*$/, "")
+    urlToShorten = urlToShorten.replace('undefined', '')
 
     try {
 
