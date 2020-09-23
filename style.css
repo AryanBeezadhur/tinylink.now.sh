@@ -67,7 +67,7 @@ body {
 
 #submit-btn {
     cursor: pointer;
-    width: 22vw;
+    width: 300px;
     height: 40px;
     margin: 20px;
     border: none;
@@ -86,6 +86,10 @@ body {
     .url-input {
         width: 200px;
         margin-left: -15px;
+    }
+
+    #submit-btn {
+        width: 150px;
     }
 
 }
