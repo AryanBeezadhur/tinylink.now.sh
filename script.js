@@ -25,7 +25,9 @@ $form.addEventListener('submit', (evt) => {
     for (var i = 0; i < $urlInputFields.length; i++) {
 
         if ($urlInputFields[i].value.includes('#') == true) {
-            $urlInputFields[i].value = $urlInputFields[i].value.split('#')[0]
+            var urlWithoutHash = $urlInputFields[i].value.split('#')[0]
+            alert(urlWithoutHash)
+            $urlInputFields[i].value = urlWithoutHash
         }
 
     }
