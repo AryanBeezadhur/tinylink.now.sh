@@ -5,11 +5,14 @@ const $urlInputGroup = document.getElementById('url-input-group')
 const $submitBtn = document.getElementById('submit-btn')
 var $urlInputFields = [...document.querySelectorAll('.url-input')]
 
+var updateURLInputFields = () => {
+    $urlInputFields = [...document.querySelectorAll('.url-input')]
+}
+
 $form.addEventListener('submit', (evt) => {
     evt.preventDefault()
 
-    // Update $urlInputFields array
-    $urlInputFields = [...document.querySelectorAll('.url-input')]
+    updateURLInputFields()
 
     for (var i = 0; i < $urlInputFields.length; i++) {
 
@@ -31,11 +34,10 @@ $addURL.addEventListener('click', () => {
     newURLInput.placeholder = 'https://tinylink.now.sh'
     $urlInputGroup.appendChild(newURLInput)
 
-    const newBR = document.createElement('br')
-    $urlInputGroup.appendChild(newBR)
+    const newLineBreak = document.createElement('br')
+    $urlInputGroup.appendChild(newLineBreak)
 
-    // Update $urlInputFields array
-    $urlInputFields = [...document.querySelectorAll('.url-input')]
+    updateURLInputFields()
     $submitBtn.innerText = `Shorten ${$urlInputFields.length} links`
 
 })
@@ -45,13 +47,10 @@ $submitBtn.addEventListener('click', () => {
     // Create URL containing all links entered
     var urlToShorten = 'https://tinylink.now.sh/api?links='
 
-    // Update $urlInputFields array
-    $urlInputFields = [...document.querySelectorAll('.url-input')]
+    updateURLInputFields()
 
     for (var i = 0; i < $urlInputFields.length; i++) {
-
         urlToShorten += `${$urlInputFields[i].value},`
-
     }
 
     urlToShorten = urlToShorten.replace(/,\s*$/, "") // Remove trailing comma
