@@ -86,9 +86,7 @@ module.exports = (req, res) => {
 
 				<footer class="api-page-element">
 					<p>
-						<a href="https://github.com/AryanBeezadhur/tinylink.now.sh">Open-source</a>
-						project created by
-						<a href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
+						Created by <a href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
 					</p>
 				</footer>
 			</div>
