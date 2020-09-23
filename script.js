@@ -36,6 +36,32 @@ $addURL.addEventListener('click', () => {
 
     // Update $urlInputFields array
     $urlInputFields = [...document.querySelectorAll('.url-input')]
-    $submitBtn.innerText = `Shorten ${$urlInputFields.length} links`;
+    $submitBtn.innerText = `Shorten ${$urlInputFields.length} links`
 
+})
+
+$submitBtn.addEventListener('click', () => {
+
+    // Create URL containing all links entered
+    var urlToShorten = 'https://tinylink.now.sh/api?links='
+
+    // Update $urlInputFields array
+    $urlInputFields = [...document.querySelectorAll('.url-input')]
+
+    for (var i = 0; i < $urlInputFields.length; i++) {
+
+        urlToShorten += `${$urlInputFields[i].value},`
+
+    }
+
+    urlToShorten = urlToShorten.replace(/,\s*$/, "") // Remove trailing comma
+    alert(urlToShorten)
+
+    /*    // Create TinyURL
+        fetch(`http://tinyurl.com/api-create.php?url=https://google.com`)
+            .then(res => res.blob())
+            .then(res => {
+                alert(res.text())
+            });
+    */
 })
