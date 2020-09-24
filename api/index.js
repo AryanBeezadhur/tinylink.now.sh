@@ -16,16 +16,16 @@ module.exports = (req, res) => {
 
 	// Sanitise links
 	var sanitisedLinks = links
-	while (sanitisedLinks.includes('<')) {
+	while (sanitisedLinks.includes('<') == true) {
 		sanitisedLinks = sanitisedLinks.replace('<', '')
 	}
-	while (sanitisedLinks.includes('>')) {
+	while (sanitisedLinks.includes('>') == true) {
 		sanitisedLinks = sanitisedLinks.replace('>', '')
 	}
-	while (sanitisedLinks.includes('"')) {
+	while (sanitisedLinks.includes('"') == true) {
 		sanitisedLinks = sanitisedLinks.replace('"', '')
 	}
-	while (sanitisedLinks.includes('javascript:')) {
+	while (sanitisedLinks.includes('javascript:') == true) {
 		sanitisedLinks = sanitisedLinks.replace('javascript:', '')
 	}
 
