@@ -14,7 +14,22 @@ module.exports = (req, res) => {
 		`)
 	}
 
-	const linksArray = links.split(',')
+	// Sanitise links
+	var sanitisedLinks = links
+	while (sanitisedLinks.includes('<')) {
+		sanitisedLinks = sanitisedLinks.replace('<', '')
+	}
+	while (sanitisedLinks.includes('>')) {
+		sanitisedLinks = sanitisedLinks.replace('>', '')
+	}
+	while (sanitisedLinks.includes('"')) {
+		sanitisedLinks = sanitisedLinks.replace('"', '')
+	}
+	while (sanitisedLinks.includes('javascript:')) {
+		sanitisedLinks = sanitisedLinks.replace('javascript:', '')
+	}
+
+	const linksArray = sanitisedLinks.split(',')
 
 	res.write(`
 		<!DOCTYPE html>
