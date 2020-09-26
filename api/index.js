@@ -25,8 +25,8 @@ module.exports = (req, res) => {
 	while (sanitisedLinks.includes('"') == true) {
 		sanitisedLinks = sanitisedLinks.replace('"', '')
 	}
-	while (sanitisedLinks.includes('javascript:') == true) {
-		sanitisedLinks = sanitisedLinks.replace('javascript:', '')
+	while (sanitisedLinks.toLowerCase().includes('javascript:') == true) {
+		sanitisedLinks = sanitisedLinks.toLowerCase().replace('javascript:', '')
 	}
 
 	const linksArray = sanitisedLinks.split(',')
