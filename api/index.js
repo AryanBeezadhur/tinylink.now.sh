@@ -36,6 +36,17 @@ module.exports = (req, res) => {
 		<html lang="en">
 
 		<head>
+
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179354718-2"></script>
+			<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			
+			gtag('config', 'UA-179354718-2');
+			</script>
+
 			<meta charset="UTF-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -69,21 +80,6 @@ module.exports = (req, res) => {
 
 			<!-- Stylesheet -->
 			<link rel="stylesheet" href="style.css">
-
-			<!-- GoSquared analytics -->
-			<script>
-				!function (g, s, q, r, d) {
-					r = g[r] = g[r] || function () {
-						(r.q = r.q || []).push(
-							arguments)
-					}; d = s.createElement(q); q = s.getElementsByTagName(q)[0];
-					d.src = '//d1l6p2sc9645hc.cloudfront.net/tracker.js'; q.parentNode.
-						insertBefore(d, q)
-				}(window, document, 'script', '_gs');
-
-				_gs('GSN-777257-T');
-				_gs('set', 'anonymizeIP', true);
-			</script>
 
 		</head>
 
