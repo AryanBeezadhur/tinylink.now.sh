@@ -5,31 +5,25 @@ module.exports = (req, res) => {
 
 	res.setHeader('Content-Type', 'text/html')
 
-	if (links == undefined) {
+	if (links == undefined || links == '') {
 		return res.send(`
 			<script>
 				alert('Error 502: Bad Gateway')
-				window.location.replace('./')
+				window.location.replace('/')
 			</script>
 		`)
 	}
 
-	// Sanitise links
-	var sanitisedLinks = links
-	while (sanitisedLinks.includes('<') == true) {
-		sanitisedLinks = sanitisedLinks.replace('<', '')
-	}
-	while (sanitisedLinks.includes('>') == true) {
-		sanitisedLinks = sanitisedLinks.replace('>', '')
-	}
-	while (sanitisedLinks.includes('"') == true) {
-		sanitisedLinks = sanitisedLinks.replace('"', '')
-	}
-	while (sanitisedLinks.toLowerCase().includes('javascript:') == true) {
-		sanitisedLinks = sanitisedLinks.toLowerCase().replace('javascript:', '')
-	}
+	const linksArray = links.split(',')
 
-	const linksArray = sanitisedLinks.split(',')
+	var htmlEscape = (text) => {
+		return text.replace(/&/g, '&amp;').
+		  replace(/</g, '&lt;').
+		  replace(/>/g, '&gt;').
+		  replace(/"/g, '&quot;').
+		  replace(/'/g, '&#039;').
+		  replace(/:/g, '&#58;');
+	 }
 
 	res.write(`
 		<!DOCTYPE html>
@@ -42,7 +36,7 @@ module.exports = (req, res) => {
 
 			<!-- Browser tab -->
 			<title>TinyLink.now.sh|Shorten multiple links into one short URL</title>
-			<link rel="shortcut icon" type="image/x-icon" href="assets/icon.svg" />
+			<link rel="shortcut icon" type="image/x-icon" href="../assets/icon.svg" />
 
 			<!-- SEO -->
 			<meta name="description" content="Shorten multiple links into one short URL" />
@@ -87,13 +81,13 @@ module.exports = (req, res) => {
 				<ol>
 	`)
 
-	for (var linksArrayIndex = 0; linksArrayIndex < linksArray.length; linksArrayIndex++) {
+	for (var i = 0; i < linksArray.length; i++) {
 		res.write(`
-			<li>
-				<a class="api-page-saved-link" href="${linksArray[linksArrayIndex]}">
-					${linksArray[linksArrayIndex]}
-				</a>
-			</li>
+					<li>
+						<a class="api-page-saved-link" href="${htmlEscape(linksArray[i])}">
+							${htmlEscape(linksArray[i])}
+						</a>
+					</li>
 		`)
 	}
 
@@ -105,22 +99,8 @@ module.exports = (req, res) => {
 						Created by <a href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
 					</p>
 				</footer>
+
 			</div>
-	`)
-
-	res.write(`
-
-		<!-- Begin of Chaport Live Chat code -->
-		<script type="text/javascript">
-			(function (w, d, v3) {
-				w.chaportConfig = {
-					appId: '5f7481125b7324048fa4cd8b'
-				};
-
-				if (w.chaport) return; v3 = w.chaport = {}; v3._q = []; v3._l = {}; v3.q = function () { v3._q.push(arguments) }; v3.on = function (e, fn) { if (!v3._l[e]) v3._l[e] = []; v3._l[e].push(fn) }; var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://app.chaport.com/javascripts/insert.js'; var ss = d.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss)
-			})(window, document);
-		</script>
-		<!-- End of Chaport Live Chat code -->
 
 		</body>
 
