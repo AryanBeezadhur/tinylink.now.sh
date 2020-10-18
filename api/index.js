@@ -65,6 +65,21 @@ module.exports = (req, res) => {
 			<!-- Stylesheet -->
 			<link rel="stylesheet" href="style.css">
 
+			<!-- GoSquared -->
+			<script>
+				!function (g, s, q, r, d) {
+					r = g[r] = g[r] || function () {
+						(r.q = r.q || []).push(
+							arguments)
+					}; d = s.createElement(q); q = s.getElementsByTagName(q)[0];
+					d.src = '//d1l6p2sc9645hc.cloudfront.net/tracker.js'; q.parentNode.
+						insertBefore(d, q)
+				}(window, document, 'script', '_gs');
+		
+				_gs('GSN-586832-N');
+				_gs('set', 'useCookies', false);
+			</script>
+
 		</head>
 
 		<body>
@@ -73,7 +88,7 @@ module.exports = (req, res) => {
 
 				<h1 class="api-page-element">
 					<img src="assets/icon.svg" alt="Logo">
-					<a href="https://tinylink.now.sh">TinyLink.now.sh</a>
+					<a onclick="_gs('event', 'TinyLink.now.sh visited from API page');" href="https://tinylink.now.sh">TinyLink.now.sh</a>
 				</h1>
 
 				<h2 class="api-page-element">Saved links</h2>
@@ -84,7 +99,7 @@ module.exports = (req, res) => {
 	for (var i = 0; i < linksArray.length; i++) {
 		res.write(`
 					<li>
-						<a class="api-page-saved-link" href="${htmlEscape(linksArray[i])}">
+						<a onclick="_gs('event', 'Saved link on API page clicked');" class="api-page-saved-link" href="${htmlEscape(linksArray[i])}">
 							${htmlEscape(linksArray[i])}
 						</a>
 					</li>
@@ -96,7 +111,7 @@ module.exports = (req, res) => {
 
 				<footer class="api-page-element">
 					<p>
-						Created by <a href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
+						Created by <a onclick="_gs('event', 'AryanBeezadhur.com visited');" href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
 					</p>
 				</footer>
 
