@@ -1,24 +1,29 @@
 module.exports = (req, res) => {
-	const {
-		links
-	} = req.query
+  const { links } = req.query;
 
-	res.setHeader('Content-Type', 'text/html')
+  res.setHeader("Content-Type", "text/html");
 
-	if (links == undefined || links == '') {
-		return res.send(`
+  if (links == undefined || links == "") {
+    return res.send(`
 			<script>
 				alert('Error 502: Bad Gateway')
 				window.location.replace('/')
 			</script>
-		`)
-	}
+		`);
+  }
 
-	const linksArray = links.split(',')
+  const linksArray = links.split(",");
 
-	var htmlEscape = (text) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;').replace(/:/g, '&#58;')
+  var htmlEscape = (text) =>
+    text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;")
+      .replace(/:/g, "&#58;");
 
-	res.write(`
+  res.write(`
 		<!DOCTYPE html>
 		<html lang="en">
 
@@ -87,19 +92,21 @@ module.exports = (req, res) => {
 				<h2 class="api-page-element">Saved links</h2>
 
 				<ol>
-	`)
+	`);
 
-	for (var i = 0; i < linksArray.length; i++) {
-		res.write(`
+  for (var i = 0; i < linksArray.length; i++) {
+    res.write(`
 					<li>
-						<a onclick="_gs('event', 'Saved link on API page clicked');" class="api-page-saved-link" href="${htmlEscape(linksArray[i])}">
+						<a onclick="_gs('event', 'Saved link on API page clicked');" class="api-page-saved-link" href="${htmlEscape(
+              linksArray[i]
+            )}">
 							${htmlEscape(linksArray[i])}
 						</a>
 					</li>
-		`)
-	}
+		`);
+  }
 
-	res.write(`
+  res.write(`
 				</ol>
 
 				<footer class="api-page-element">
@@ -113,7 +120,7 @@ module.exports = (req, res) => {
 		</body>
 
 		</html>
-	`)
+	`);
 
-	res.end()
-}
+  res.end();
+};
