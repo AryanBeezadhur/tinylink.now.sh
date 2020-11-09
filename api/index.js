@@ -16,14 +16,7 @@ module.exports = (req, res) => {
 
 	const linksArray = links.split(',')
 
-	var htmlEscape = (text) => {
-		return text.replace(/&/g, '&amp;').
-			replace(/</g, '&lt;').
-			replace(/>/g, '&gt;').
-			replace(/"/g, '&quot;').
-			replace(/'/g, '&#039;').
-			replace(/:/g, '&#58;')
-	}
+	var htmlEscape = (text) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;').replace(/:/g, '&#58;')
 
 	res.write(`
 		<!DOCTYPE html>
