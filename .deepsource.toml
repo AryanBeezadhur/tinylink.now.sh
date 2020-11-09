@@ -15,7 +15,4 @@ enabled = true
     "browser"
   ]
   style_guide = "airbnb"
-
-[[transformers]]
-name = "prettier"
-enabled = true
+  
