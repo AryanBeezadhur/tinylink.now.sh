@@ -52,12 +52,10 @@ $submitBtn.addEventListener('click', async () => {
         }
     }
 
-    // Abort if urlToShorten is still undefined
     if (urlToShorten == undefined) {
         return alert('Please enter at least 1 link')
     }
 
-    // Add Tinylink API URL, remove trailing comma, remove 'undefined' from start of string if present
     urlToShorten = `https://tinylink.now.sh/api?links=${urlToShorten}`
     urlToShorten = urlToShorten.replace(/,\s*$/, '')
     if (urlToShorten.includes('undefined') == true) {
