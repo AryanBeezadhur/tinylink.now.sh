@@ -71,7 +71,8 @@ module.exports = (req, res) => {
 						insertBefore(d, q)
 				}(window, document, 'script', '_gs');
 		
-				_gs('GSN-586832-N');
+                _gs('GSN-586832-N');
+                _gs('set', 'anonymizeIP', true);
 				_gs('set', 'useCookies', false);
 			</script>
 
