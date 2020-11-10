@@ -77,7 +77,6 @@ module.exports = (req, res) => {
 		<body>
 
 			<div id="container">
-
 				<h1 class="api-page-element">
 					<img src="assets/icon.svg" alt="Logo">
 					<a onclick="_gs('event', 'TinyLink.now.sh visited from API page');" href="https://tinylink.now.sh">TinyLink.now.sh</a>
@@ -106,7 +105,6 @@ module.exports = (req, res) => {
 						Created by <a onclick="_gs('event', 'AryanBeezadhur.com visited');" href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
 					</p>
 				</footer>
-
 			</div>
 
 		</body>
