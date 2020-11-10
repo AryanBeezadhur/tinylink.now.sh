@@ -4,13 +4,13 @@ const $urlInputGroup = document.getElementById('url-input-group')
 const $submitBtn = document.getElementById('submit-btn')
 var $urlInputFields = [...document.querySelectorAll('.url-input')]
 
-var updateURLInputFields = () => {
+function updateURLInputFields() {
     $urlInputFields = [...document.querySelectorAll('.url-input')]
 }
 
-var copyText = (textToCopy) => {
+function copyText(text) {
     const tempTextarea = document.createElement('textarea')
-    tempTextarea.value = textToCopy
+    tempTextarea.value = text
     document.body.appendChild(tempTextarea)
     tempTextarea.select()
     document.execCommand('copy')
