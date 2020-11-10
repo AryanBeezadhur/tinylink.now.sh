@@ -59,7 +59,7 @@ $submitBtn.addEventListener('click', async () => {
 
     // Add Tinylink API URL, remove trailing comma, remove 'undefined' from start of string if present
     urlToShorten = `https://tinylink.now.sh/api?links=${urlToShorten}`
-    urlToShorten = urlToShorten.replace(/,\s*$/, "")
+    urlToShorten = urlToShorten.replace(/,\s*$/, '')
     if (urlToShorten.includes('undefined') == true) {
         urlToShorten = urlToShorten.replace('undefined', '')
     }
