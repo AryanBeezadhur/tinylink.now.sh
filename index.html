@@ -3,90 +3,87 @@
 
 <head>
 
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<!-- Browser tab -->
-	<title>TinyLink.now.sh - Shorten multiple links into one short URL</title>
-	<link rel="shortcut icon" type="image/x-icon" href="assets/icon.svg" />
+    <!-- Browser tab -->
+    <title>TinyLink.now.sh - Shorten multiple links into one short URL</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/icon.svg" />
 
-	<!-- SEO -->
-	<meta name="description" content="Shorten multiple links into one short URL" />
-	<meta name="title" content="TinyLink.now.sh" />
-	<meta name="robots" content="index, follow" />
+    <!-- SEO -->
+    <meta name="description" content="Shorten multiple links into one short URL" />
+    <meta name="title" content="TinyLink.now.sh" />
+    <meta name="robots" content="index, follow" />
 
-	<!-- OpenGraph -->
-	<meta property="og:title" content="TinyLink.now.sh" />
-	<meta property="og:image" content="https://tinylink.now.sh/assets/icon.svg" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://tinylink.now.sh" />
-	<meta property="og:site_name" content="tinylink.now.sh" />
-	<meta property="og:description" content="Shorten multiple links into one short URL" />
+    <!-- OpenGraph -->
+    <meta property="og:title" content="TinyLink.now.sh" />
+    <meta property="og:image" content="https://tinylink.now.sh/assets/icon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tinylink.now.sh" />
+    <meta property="og:site_name" content="tinylink.now.sh" />
+    <meta property="og:description" content="Shorten multiple links into one short URL" />
 
-	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="@AryanBeezadhur" />
-	<meta name="twitter:creator" content="@AryanBeezadhur" />
-	<meta name="twitter:domain" content="tinylink.now.sh" />
-	<meta name="twitter:title" content="TinyLink.now.sh" />
-	<meta name="twitter:description" content="Shorten multiple links into one short URL" />
-	<meta name="twitter:image" content="https://tinylink.now.sh/assets/icon.svg" />
-	<meta name="twitter:image:alt" content="Shorten multiple links into one short URL" />
-	<meta name="twitter:url" content="https://tinylink.now.sh" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@AryanBeezadhur" />
+    <meta name="twitter:creator" content="@AryanBeezadhur" />
+    <meta name="twitter:domain" content="tinylink.now.sh" />
+    <meta name="twitter:title" content="TinyLink.now.sh" />
+    <meta name="twitter:description" content="Shorten multiple links into one short URL" />
+    <meta name="twitter:image" content="https://tinylink.now.sh/assets/icon.svg" />
+    <meta name="twitter:image:alt" content="Shorten multiple links into one short URL" />
+    <meta name="twitter:url" content="https://tinylink.now.sh" />
 
-	<!-- Stylesheet -->
-	<link rel="stylesheet" href="style.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 
-	<!-- GoSquared -->
-	<script>
-		!function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-		arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-		d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-		insertBefore(d,q)}(window,document,'script','_gs');
+    <!-- Panelbear Analytics - We respect your privacy -->
+    <script async src="https://cdn.panelbear.com/analytics.js?site=F0EY1FcEatt"></script>
+    <script>
+        window.panelbear = window.panelbear || function () { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
+        panelbear('config', { site: 'F0EY1FcEatt' });
+    </script>
 
-		_gs('GSN-586832-N');
-		_gs('set', 'anonymizeIP', true);
-		_gs('set', 'useCookies', false);
-	</script>
 </head>
 
 <body>
 
-	<center id="container">
+    <center id="container">
 
-		<h1 id="brand">
-			<img src="assets/icon.svg" alt="Logo">
-			TinyLink.now.sh
-		</h1>
+        <h1 id="brand">
+            <img src="assets/icon.svg" alt="Logo">
+            TinyLink.now.sh
+        </h1>
 
-		<p id="tagline">
-			Shorten multiple links into one short URL. Powered by <a onclick="_gs('event', 'TinyURL.com visited');"
-				href="https://tinyurl.com">TinyURL</a>.
-		</p>
+        <p id="tagline">
+            Shorten multiple links into one short URL. Powered by <a
+                onclick="panelbear('track', '<TinyURL.com> header link clicked');"
+                href="https://tinyurl.com">TinyURL</a>.
+        </p>
 
-		<form id="form">
+        <form id="form">
 
-			<div id="url-input-group">
-				<input class="url-input" type="url" placeholder="https://tinylink.now.sh" autofocus />
-				<br />
-			</div>
+            <div id="url-input-group">
+                <input class="url-input" type="url" placeholder="https://tinylink.now.sh" autofocus />
+                <br />
+            </div>
 
-			<button id="add-url">+ Add URL</button>
+            <button id="add-url">+ Add URL</button>
 
-			<br />
-			<button id="submit-btn" onclick="_gs('event', 'TinyLink created');">Shorten 1 link</button>
+            <br />
+            <button id="submit-btn" onclick="panelbear('track', 'TinyLink created');">Shorten 1 link</button>
 
-		</form>
+        </form>
 
-		<footer>
-			<p>
-				Created by <a onclick="_gs('event', 'AryanBeezadhur.com visited');"
-					href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
-			</p>
-		</footer>
+        <footer>
+            <p>
+                Created by <a onclick="panelbear('track', '<AryanBeezadhur.com> footer link clicked');"
+                    href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
+            </p>
+        </footer>
 
-	</center>
+    </center>
 
-	<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </html>

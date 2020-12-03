@@ -24,7 +24,7 @@ module.exports = (req, res) => {
                 .replace(/"/g, '&quot;')
                 .replace(/'/g, '&#039;')
                 .replace(/:/g, '&#58;')
-            )
+        )
     }
 
     res.write(`
@@ -67,16 +67,11 @@ module.exports = (req, res) => {
         <!-- Stylesheet -->
         <link rel="stylesheet" href="style.css">
 
-        <!-- GoSquared -->
+        <!-- Panelbear Analytics - We respect your privacy -->
+        <script async src="https://cdn.panelbear.com/analytics.js?site=F0EY1FcEatt"></script>
         <script>
-            !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-            arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-            d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-            insertBefore(d,q)}(window,document,'script','_gs');
-
-            _gs('GSN-586832-N');
-            _gs('set', 'anonymizeIP', true);
-            _gs('set', 'useCookies', false);
+            window.panelbear = window.panelbear || function () { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
+            panelbear('config', { site: 'F0EY1FcEatt' });
         </script>
 
     </head>
@@ -86,7 +81,7 @@ module.exports = (req, res) => {
         <div id="container">
             <h1 class="api-page-element">
                 <img src="assets/icon.svg" alt="Logo">
-                <a onclick="_gs('event', 'TinyLink.now.sh visited from API page');" href="https://tinylink.now.sh">TinyLink.now.sh</a>
+                <a onclick="panelbear('track', '<TinyLink.now.sh homepage> header link clicked');" href="https://tinylink.now.sh">TinyLink.now.sh</a>
             </h1>
 
             <h2 class="api-page-element">Saved links</h2>
@@ -97,7 +92,7 @@ module.exports = (req, res) => {
     for (var i = 0; i < linksArray.length; i++) {
         res.write(`
             <li>
-                <a onclick="_gs('event', 'Saved link on API page clicked');" class="api-page-saved-link" href="${htmlEscape(linksArray[i])}">
+                <a onclick="panelbear('track', 'API page link clicked');" class="api-page-saved-link" href="${htmlEscape(linksArray[i])}">
                     ${htmlEscape(linksArray[i])}
                 </a>
             </li>
@@ -109,7 +104,7 @@ module.exports = (req, res) => {
 
             <footer class="api-page-element">
                 <p>
-                    Created by <a onclick="_gs('event', 'AryanBeezadhur.com visited');" href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
+                    Created by <a onclick="panelbear('track', '<AryanBeezadhur.com> footer link clicked');" href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
                 </p>
             </footer>
         </div>
