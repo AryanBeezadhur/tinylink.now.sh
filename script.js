@@ -8,15 +8,6 @@ function updateURLInputFields() {
     $urlInputFields = [...document.querySelectorAll('.url-input')]
 }
 
-function copyText(text) {
-    const tempTextarea = document.createElement('textarea')
-    tempTextarea.value = text
-    document.body.appendChild(tempTextarea)
-    tempTextarea.select()
-    document.execCommand('copy')
-    document.body.removeChild(tempTextarea)
-}
-
 $form.addEventListener('submit', (evt) => {
     evt.preventDefault()
     updateURLInputFields()
@@ -53,7 +44,7 @@ $submitBtn.addEventListener('click', async () => {
     }
 
     if (urlToShorten == undefined) {
-        return alert('Please enter at least 1 link')
+        return swal('Something went wrong', 'Please enter at least one link', 'error')
     }
 
     urlToShorten = `https://tinylink.now.sh/api?links=${urlToShorten}`
@@ -64,11 +55,34 @@ $submitBtn.addEventListener('click', async () => {
 
     try {
         var res = await fetch(`https://tinyurl.com/api-create.php?url=${urlToShorten}`)
-        var TinyURL = await res.text()
-        $submitBtn.style = 'height: 60px'
-        $submitBtn.innerHTML = `${TinyURL} <br /><br /> - Link copied to clipboard!`
-        copyText(TinyURL)
+        var shortenedLink = await res.text()
+        swal({
+            title: 'Shortened!',
+            text: shortenedLink,
+            icon: '/assets/icon.svg',
+            buttons: {
+                copy: {
+                    text: 'Copy',
+                    value: 'copy'
+                },
+                close: {
+                    text: 'Close',
+                    value: null
+                }
+            }
+        }).then((value) => {
+            if (value === 'copy') {
+                const hiddenBtn = document.createElement('button')
+                hiddenBtn.style = 'opacity: 0'
+                hiddenBtn.className = 'hiddenBtn'
+                hiddenBtn.dataset.clipboardText = shortenedLink
+                document.body.appendChild(hiddenBtn)
+                new ClipboardJS('.hiddenBtn')
+                hiddenBtn.click()
+                document.body.removeChild(hiddenBtn)
+            }
+        })
     } catch (error) {
-        alert(error)
+        swal('Something went wrong!', error.message, 'error')
     }
 })

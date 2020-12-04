@@ -29,7 +29,7 @@ body {
 
 #form {
     background: var(--dark-grey);
-    width: 60vw;
+    width: 40vw;
     border-radius: 10px;
     padding: 40px;
 }
@@ -46,15 +46,11 @@ body {
     transition: all 0.2s;
 }
 
-.url-input:focus {
-    border: 1px solid var(--blue);
-}
-
 #add-url {
     cursor: pointer;
     color: var(--white);
     background: var(--grey);
-    border: 1px solid transparent;
+    border: none;
     border-radius: 5px;
     margin: 5px;
     padding: 10px;
@@ -62,7 +58,7 @@ body {
 }
 
 #add-url:hover {
-    border: 1px solid var(--blue);
+    background: var(--blue);
 }
 
 #submit-btn {
@@ -81,10 +77,31 @@ body {
     background: var(--grey);
 }
 
+.swal-modal {
+    background: var(--grey);
+}
+
+.swal-title, .swal-text {
+    color: var(--white);
+}
+
+.swal-button {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.swal-button:hover {
+    background: var(--dark-grey) !important;
+}
+
 @media only screen and (max-width: 770px) {
 
+    #form {
+        width: 60vw;
+    }
+
     .url-input {
-        width: 200px;
+        width: 250px;
         margin-left: -15px;
     }
 
