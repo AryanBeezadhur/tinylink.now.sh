@@ -43,7 +43,7 @@ $submitBtn.addEventListener('click', async () => {
         }
     }
 
-    if (urlToShorten == undefined) {
+    if (!urlToShorten) {
         return swal('Something went wrong', 'Please enter at least one link', 'error')
     }
 
