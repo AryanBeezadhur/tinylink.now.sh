@@ -5,11 +5,32 @@ module.exports = (req, res) => {
 
     res.setHeader('Content-Type', 'text/html')
 
-    if (links == undefined || links == '') {
+    if (!links) {
         return res.send(`
+        <style>
+            * {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            }
+
+            .swal-modal {
+                background: #25282C;
+            }
+
+            .swal-title, .swal-text {
+                color: #FFFFFF;
+            }
+
+            .swal-button {
+                background: #1E90FF;
+            }
+        </style>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+
         <script>
-            alert('Error 502: Bad Gateway')
-            window.location.replace('/')
+            window.addEventListener('DOMContentLoaded', () => {
+                swal('400', 'Bad Request', 'error').then(() => window.location.replace('/'))
+            });
         </script>
         `)
     }
