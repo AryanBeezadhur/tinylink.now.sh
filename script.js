@@ -56,6 +56,7 @@ $submitBtn.addEventListener('click', async () => {
     try {
         var res = await fetch(`https://tinyurl.com/api-create.php?url=${urlToShorten}`)
         var shortenedLink = await res.text()
+        panelbear('track', 'TinylinkCreated')
         swal({
             title: 'Shortened!',
             text: shortenedLink,

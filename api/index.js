@@ -134,7 +134,7 @@ module.exports = (req, res) => {
         <div id="container">
             <h1 class="api-page-element">
                 <img src="assets/icon.svg" alt="Logo">
-                <a onclick="panelbear('track', 'APIpageHeaderClicked');" href="https://tinylink.now.sh">TinyLink.now.sh</a>
+                <a onclick="panelbear('track', 'APIpageHeaderClicked')" href="https://tinylink.now.sh">TinyLink.now.sh</a>
             </h1>
 
             <h2 class="api-page-element">Saved links</h2>
@@ -145,7 +145,7 @@ module.exports = (req, res) => {
     for (var i = 0; i < linksArray.length; i++) {
         res.write(`
             <li>
-                <a onclick="panelbear('track', 'APIpageLinkClicked');" class="api-page-saved-link" href="${htmlEscape(linksArray[i])}">
+                <a onclick="panelbear('track', 'APIpageLinkClicked')" class="api-page-saved-link" href="${htmlEscape(linksArray[i])}">
                     ${htmlEscape(linksArray[i])}
                 </a>
             </li>
@@ -157,7 +157,7 @@ module.exports = (req, res) => {
 
             <footer class="api-page-element">
                 <p>
-                    Created by <a onclick="panelbear('track', 'APIpageFooterLinkClicked');" href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
+                    Created by <a onclick="panelbear('track', 'APIpageFooterLinkClicked')" href="https://aryanbeezadhur.com">Aryan Beezadhur</a>
                 </p>
             </footer>
         </div>
